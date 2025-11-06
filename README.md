@@ -12,7 +12,7 @@ Aplikasi wIBu AniME COlLeCtiON dengan sistem CRUD (Create, Read, Update, Delete)
 #### Diagram
 ![Diagram](Diagram.png)  
 
-#### Class studio (Tabel Induk)
+#### Class studio
 <pre>
   ● id_studio (PK) <strong>berupa int sebagai Primary Key dari tabel studio</strong>
   ● nama_studio    <strong>berupa varchar sebagai nama dari sebuah studio</strong>
@@ -77,7 +77,7 @@ Aplikasi wIBu AniME COlLeCtiON dengan sistem CRUD (Create, Read, Update, Delete)
 ● Bagian bawah file (HTML) berisi logika Router (meng-include file 'view' yang tepat).
 </pre>
 
-#### view/ (Folder View):
+#### view/ (File2 View):
 <pre>
 ● Berisi file PHP/HTML untuk tampilan (UI).
 ● Bertugas menampilkan data dari Model dan menyediakan form untuk input.
@@ -87,29 +87,31 @@ Aplikasi wIBu AniME COlLeCtiON dengan sistem CRUD (Create, Read, Update, Delete)
 ### Flow Program
 <pre>
 ● User membuka Web
-● Tampilan akan menampilkan isi data dari database          **READ**
+● Tampilan akan menampilkan isi data dari database            READ
 ● Terdapat pilihan dalam Navbar (studio, anime, character)  
-● Jika User Mengedit maka Tampilan edit akan muncul         **UPDATE**
-● Jika User Menghapus data maka data akan terhapus          **DELETE**
-● Jika User ke bawah page ada field untuk menambah data     **CREATE**
+● Jika User Mengedit maka Tampilan edit akan muncul           UPDATE
+● Jika User Menghapus data maka data akan terhapus            DELETE
+● Jika User ke bawah page ada field untuk menambah data       CREATE
 </pre>
 
 ### Connect Database
 <pre>
 ● Pada Tugas Praktikum kali ini, aplikasi terhubung ke database MySQL bernama db_wibu.
 ● Koneksi diatur oleh class/Database.php menggunakan PDO.
-● Seluruh proses CRUD (Create, Read, Update, Delete) yang ada di setiap class Model (Studio.php, Anime.php, Character.php) sudah tersambung dan berinteraksi langsung dengan database.
-● File data struktur dan dummy data wibu.sql terdapat pada repository ini.
+● Seluruh proses CRUD (Create, Read, Update, Delete) yang ada di setiap class Model 
+  (Studio.php, Anime.php, Character.php) tersambung dan berinteraksi dengan database.
+● File data struktur dan dummy data db_wibu.sql terdapat pada repository ini.
 </pre>
 
-## 📋 Requirements (Sesuai Spesifikasi Tugas)
+## 📋 Requirements
 <pre>
 ● 3 Entitas (Tabel): studio, anime, character. ✅
 ● Minimal 1 Relasi (FK): anime.id_studio -> studio DAN character.id_anime -> anime. ✅
-● Prepared Statement: Seluruh query di semua class Model menggunakan prepare(), bindParam(), dan execute(). ✅
+● Prepared Statement: Seluruh query di semua class menggunakan prepare(), bindParam(), dan execute(). ✅
 ● Tidak Ada Query Mentah: Tidak ada penggunaan PDO::query(). ✅
-● Full CRUD: Setiap entitas (Studio, Anime, Character) memiliki fungsionalitas Create, Read, Update, dan Delete. ✅
-● Logika & Alur OOP: Alur program sudah memisahkan dengan jelas antara Logic (Controller di index.php), Data Access (Model di class/), dan Presentation (View di view/). ✅
+● Full CRUD: Setiap (Studio, Anime, Character) memiliki fitur Create, Read, Update, dan Delete. ✅
+● Logika & Alur OOP: Alur program sudah memisahkan dengan jelas antara Logic (Controller di index.php),
+  Data Access (Model di class/), dan Presentation (View di view/). ✅
 </pre>
 
 ## 📸 Dokumentasi
