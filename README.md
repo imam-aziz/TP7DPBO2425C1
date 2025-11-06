@@ -100,7 +100,7 @@ Aplikasi wIBu AniME COlLeCtiON dengan sistem CRUD (Create, Read, Update, Delete)
 ● Koneksi diatur oleh class/Database.php menggunakan PDO.
 ● Seluruh proses CRUD (Create, Read, Update, Delete) yang ada di setiap class Model 
   (Studio.php, Anime.php, Character.php) tersambung dan berinteraksi dengan database.
-● File data struktur dan dummy data wibu.sql terdapat pada repository ini.
+● File data struktur dan dummy data db_wibu.sql terdapat pada repository ini.
 </pre>
 
 ## 📋 Requirements
