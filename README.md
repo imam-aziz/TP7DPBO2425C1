@@ -112,22 +112,37 @@ Aplikasi web ini adalah sistem CRUD (Create, Read, Update, Delete) sederhana unt
 
 Berikut adalah Dokumentasi berupa Screenshot saat program dijalankan di Browser Chrome dengan XAMPP dan PHPLiveServer
 
-### Tampilan Awal (List Studio)
+### Tampilan Awal
 ![01](Dokumentasi/01.png)
 
-### Tampilan List Data
+### Tampilan List Data (READ)
 ![02](Dokumentasi/02.png)
 ![03](Dokumentasi/03.png)
 ![04](Dokumentasi/04.png)
 
-Tampilan Form Edit (Dengan Dropdown FK Terisi)
+### Insert Data (CREATE)
+![05](Dokumentasi/05.png)
+![06](Dokumentasi/06.png)
+![07](Dokumentasi/07.png)
+● data setelah di insert
+![08](Dokumentasi/08.png)
+![09](Dokumentasi/09.png)
+![10](Dokumentasi/10.png)
 
-[SCREENSHOT 3: Halaman Edit Anime, dengan Dropdown Studio yang otomatis memilih data yang benar]
+### Edit Data (UPDATE)
+![11](Dokumentasi/11.png)
+![12](Dokumentasi/12.png)
+![13](Dokumentasi/13.png)
+● data setelah di edit
+![14](Dokumentasi/14.png)
+![15](Dokumentasi/15.png)
+![16](Dokumentasi/16.png)
 
-Tampilan List Character
-
-[SCREENSHOT 4: Halaman List Character dan Form Tambah Character]
-
-Database (di phpMyAdmin)
-
-[SCREENSHOT 5: Tampilan 3 tabel (studio, anime, character) di phpMyAdmin]
+### Delete Data (Delete)
+![17](Dokumentasi/17.png)
+![18](Dokumentasi/18.png)
+![19](Dokumentasi/19.png)
+● data setelah di delete
+![20](Dokumentasi/20.png)
+![21](Dokumentasi/21.png)
+![22](Dokumentasi/22.png)
