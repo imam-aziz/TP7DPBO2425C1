@@ -22,7 +22,7 @@ File ini "mewarisi" variabel $studio dari index.php
         <td><?= htmlspecialchars($s['asal_kota']) ?></td>
         <td class="table-actions"> <!-- Class ditambahkan -->
             <!-- Tombol diubah menjadi .btn -->
-            <a href="?page=studios&edit_studio=<?= $s['id_studio'] ?>" class="btn btn-warning">Edit</a>
+            <a href="?edit_studio=<?= $s['id_studio'] ?>" class="btn btn-warning">Edit</a>
             <a href="?page=studios&delete_studio=<?= $s['id_studio'] ?>" 
                class="btn btn-danger"
                onclick="return confirm('Are you sure you want to delete this studio?');">

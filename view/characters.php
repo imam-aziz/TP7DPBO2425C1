@@ -10,11 +10,21 @@ File ini "mewarisi" variabel $character dan $anime dari index.php
         <th>Nama Character</th>
         <th>Jenis Kelamin</th>
         <th>Voice Actor</th>
-        <th>Anime ID (FK)</th>
+        <th>Anime</th> <!-- Diubah dari Anime ID (FK) -->
         <th>Action</th>
     </tr>
     <?php 
     $char_list = $character->readAll();
+
+    // (BARU) Ambil semua anime untuk mapping nama
+    $anime_map = [];
+    $all_animes = $anime->readAll();
+    if ($all_animes) {
+        foreach ($all_animes as $a) {
+            $anime_map[$a['id_anime']] = $a['nama_anime'];
+        }
+    }
+
     if ($char_list) {
         foreach ($char_list as $c): ?>
     <tr>
@@ -22,10 +32,11 @@ File ini "mewarisi" variabel $character dan $anime dari index.php
         <td><?= htmlspecialchars($c['nama_character']) ?></td>
         <td><?= htmlspecialchars($c['jenis_kelamin']) ?></td>
         <td><?= htmlspecialchars($c['voice_actor']) ?></td>
-        <td><?= $c['id_anime'] ?></td>
+        <!-- (DIUBAH) Tampilkan nama anime, beri fallback jika id tidak ditemukan -->
+        <td><?= htmlspecialchars($anime_map[$c['id_anime']] ?? 'N/A') ?></td>
         <td class="table-actions"> <!-- Class ditambahkan -->
             <!-- Tombol diubah menjadi .btn -->
-            <a href="?page=characters&edit_char=<?= $c['id_character'] ?>" class="btn btn-warning">Edit</a>
+            <a href="?edit_char=<?= $c['id_character'] ?>" class="btn btn-warning">Edit</a>
             <a href="?page=characters&delete_character=<?= $c['id_character'] ?>" 
                class="btn btn-danger"
                onclick="return confirm('Are you sure you want to delete this character?');">
@@ -50,22 +61,19 @@ File ini "mewarisi" variabel $character dan $anime dari index.php
     
     <label>Jenis Kelamin:</label>
     <input type="text" name="jenis_kelamin">
-    
+
     <label>Voice Actor:</label>
     <input type="text" name="voice_actor">
     
     <label>Anime:</label>
-    <!-- Ini adalah cara handle Foreign Key -->
+    <!-- Dropdown untuk Foreign Key (FK) -->
     <select name="id_anime" required>
         <option value="">-- Pilih Anime --</option>
         <?php 
-        // Mengambil data dari Model Anime untuk mengisi dropdown
-        $anime_list_for_dropdown = $anime->readAll();
-        if ($anime_list_for_dropdown) {
-            foreach ($anime_list_for_dropdown as $a): ?>
-                <option value="<?= $a['id_anime'] ?>">
-                    <?= htmlspecialchars($a['nama_anime']) ?>
-                </option>
+        // $all_animes sudah diambil di atas
+        if ($all_animes) {
+            foreach ($all_animes as $a): ?>
+                <option value="<?= $a['id_anime'] ?>"><?= htmlspecialchars($a['nama_anime']) ?></option>
         <?php 
             endforeach; 
         }

@@ -9,21 +9,32 @@ File ini "mewarisi" variabel $anime dan $studio dari index.php
         <th>ID</th>
         <th>Nama Anime</th>
         <th>Genre</th>
-        <th>Studio ID (FK)</th>
+        <th>Studio</th> <!-- Diubah dari Studio ID (FK) -->
         <th>Action</th>
     </tr>
     <?php 
     $anime_list = $anime->readAll();
+    
+    // (BARU) Ambil semua studio untuk mapping nama
+    $studio_map = [];
+    $all_studios = $studio->readAll();
+    if ($all_studios) {
+        foreach ($all_studios as $s) {
+            $studio_map[$s['id_studio']] = $s['nama_studio'];
+        }
+    }
+
     if ($anime_list) {
         foreach ($anime_list as $a): ?>
     <tr>
         <td><?= $a['id_anime'] ?></td>
         <td><?= htmlspecialchars($a['nama_anime']) ?></td>
         <td><?= htmlspecialchars($a['genre']) ?></td>
-        <td><?= $a['id_studio'] ?></td>
+        <!-- (DIUBAH) Tampilkan nama studio, beri fallback jika id tidak ditemukan -->
+        <td><?= htmlspecialchars($studio_map[$a['id_studio']] ?? 'N/A') ?></td>
         <td class="table-actions"> <!-- Class ditambahkan -->
             <!-- Tombol diubah menjadi .btn -->
-            <a href="?page=animes&edit_anime=<?= $a['id_anime'] ?>" class="btn btn-warning">Edit</a>
+            <a href="?edit_anime=<?= $a['id_anime'] ?>" class="btn btn-warning">Edit</a>
             <a href="?page=animes&delete_anime=<?= $a['id_anime'] ?>" 
                class="btn btn-danger"
                onclick="return confirm('Are you sure you want to delete this anime?');">
@@ -50,17 +61,14 @@ File ini "mewarisi" variabel $anime dan $studio dari index.php
     <input type="text" name="genre">
     
     <label>Studio:</label>
-    <!-- Ini adalah cara handle Foreign Key -->
+    <!-- Dropdown untuk Foreign Key (FK) -->
     <select name="id_studio" required>
         <option value="">-- Pilih Studio --</option>
         <?php 
-        // Mengambil data dari Model Studio untuk mengisi dropdown
-        $studio_list_for_dropdown = $studio->readAll();
-        if ($studio_list_for_dropdown) {
-            foreach ($studio_list_for_dropdown as $s): ?>
-                <option value="<?= $s['id_studio'] ?>">
-                    <?= htmlspecialchars($s['nama_studio']) ?>
-                </option>
+        // $all_studios sudah diambil di atas
+        if ($all_studios) {
+            foreach ($all_studios as $s): ?>
+                <option value="<?= $s['id_studio'] ?>"><?= htmlspecialchars($s['nama_studio']) ?></option>
         <?php 
             endforeach; 
         }
