@@ -5,7 +5,7 @@
 
 ## 🔀 Penjelasan Desain dan Flow Program
 
-Aplikasi web ini adalah sistem CRUD (Create, Read, Update, Delete) sederhana untuk mengelola database koleksi anime, yang dibangun menggunakan PHP Native dengan prinsip OOP.
+Aplikasi wIBu AniME COlLeCtiON dengan sistem CRUD (Create, Read, Update, Delete) sederhana untuk mengelola database koleksi anime, yang dibangun menggunakan PHP Native dengan prinsip OOP.
 
 ### Penjelasan Class
 
@@ -95,19 +95,23 @@ Aplikasi web ini adalah sistem CRUD (Create, Read, Update, Delete) sederhana unt
 </pre>
 
 ### Connect Database
+<pre>
 ● Pada Tugas Praktikum kali ini, aplikasi terhubung ke database MySQL bernama db_wibu.
 ● Koneksi diatur oleh class/Database.php menggunakan PDO.
 ● Seluruh proses CRUD (Create, Read, Update, Delete) yang ada di setiap class Model (Studio.php, Anime.php, Character.php) sudah tersambung dan berinteraksi langsung dengan database.
 ● File data struktur dan dummy data wibu.sql terdapat pada repository ini.
+</pre>
 
 ## 📋 Requirements (Sesuai Spesifikasi Tugas)
+<pre>
 ● 3 Entitas (Tabel): studio, anime, character. ✅
 ● Minimal 1 Relasi (FK): anime.id_studio -> studio DAN character.id_anime -> anime. ✅
 ● Prepared Statement: Seluruh query di semua class Model menggunakan prepare(), bindParam(), dan execute(). ✅
 ● Tidak Ada Query Mentah: Tidak ada penggunaan PDO::query(). ✅
 ● Full CRUD: Setiap entitas (Studio, Anime, Character) memiliki fungsionalitas Create, Read, Update, dan Delete. ✅
 ● Logika & Alur OOP: Alur program sudah memisahkan dengan jelas antara Logic (Controller di index.php), Data Access (Model di class/), dan Presentation (View di view/). ✅
-    
+</pre>
+
 ## 📸 Dokumentasi
 
 Berikut adalah Dokumentasi berupa Screenshot saat program dijalankan di Browser Chrome dengan XAMPP dan PHPLiveServer
